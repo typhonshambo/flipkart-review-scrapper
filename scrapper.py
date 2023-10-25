@@ -60,5 +60,3 @@ def scraper(keyword):
 
     print("Done check data.json")
 
-# Call the function
-scraper("laptop")
