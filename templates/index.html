@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Reviews</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flipkart Reviews</h1>
+
+    <form action="/search" method="post">
+        <input type="text" name="keyword" placeholder="Enter a keyword">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if data %}
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Reviews</th>
+        </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.product_name }}</td>
+            <td>
+                <ul>
+                    {% for review in item.reviews %}
+                    <li>{{ review }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
